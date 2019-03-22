@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Desafio Android Tembici</string>
+    <string name="title_activity_list_repo">ListRepoActivity</string>
 </resources>
