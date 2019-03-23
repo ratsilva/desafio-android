@@ -4,12 +4,16 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.paging.PageKeyedDataSource
+import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import br.com.desafioandroid.R
 import br.com.desafioandroid.databinding.ActivityListrepoBinding
+import br.com.desafioandroid.model.retrofit.Item
 import br.com.desafioandroid.view.adapter.ListRepoAdapter
 import br.com.desafioandroid.viewmodel.ListRepoViewModel
 
@@ -37,6 +41,9 @@ class ListRepoActivity : AppCompatActivity() {
 
         // Configure Button to scroll to top of recyclerview
         configureTopButton()
+
+        // Configure Observable fields from ViewModel
+        configureObservableFields()
     }
 
     fun configureSwipeLayout() {
@@ -63,6 +70,20 @@ class ListRepoActivity : AppCompatActivity() {
             //binding.listrepoRecyclerview.smoothScrollToPosition(0)
             binding.listrepoRecyclerview.scrollToPosition(0)
         })
+
+    }
+
+    fun configureObservableFields(){
+
+        viewModel.getListItem()?.observe(this, Observer<PagedList<Item>> { pagedList ->
+            adapter.submitList(pagedList)
+            binding.listrepoSwipelayout.isRefreshing = false
+        })
+
+        viewModel.getDataSource()?.observe(this, Observer<PageKeyedDataSource<Int, Item>> { pagedList ->
+            pagedList.invalidate()
+        })
+
 
     }
 

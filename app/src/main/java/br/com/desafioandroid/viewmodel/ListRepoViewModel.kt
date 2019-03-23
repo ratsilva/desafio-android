@@ -27,4 +27,8 @@ class ListRepoViewModel : ViewModel(){
 
     }
 
+    fun getListItem() = itemPagedList
+
+    fun getDataSource() = liveDataSource
+
 }
