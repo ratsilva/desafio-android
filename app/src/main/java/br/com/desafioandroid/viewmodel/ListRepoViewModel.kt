@@ -4,10 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.PageKeyedDataSource
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
+import br.com.desafioandroid.model.RepoDataSourceFactory
 import br.com.desafioandroid.model.retrofit.Item
-import android.nfc.tech.MifareUltralight.PAGE_SIZE
 import androidx.paging.LivePagedListBuilder
-
 
 class ListRepoViewModel : ViewModel(){
 
@@ -16,12 +15,15 @@ class ListRepoViewModel : ViewModel(){
 
     init {
 
+        val repoDataSourceFactory = RepoDataSourceFactory()
+        liveDataSource = repoDataSourceFactory.getRepoLiveDataSource()
+
         val config = PagedList.Config.Builder()
             .setEnablePlaceholders(false)
-            //.setPageSize()
+            .setPageSize(10)
             .build()
 
-        //itemPagedList = LivePagedListBuilder(, config)
+        itemPagedList = LivePagedListBuilder(repoDataSourceFactory, config).build()
 
     }
 
