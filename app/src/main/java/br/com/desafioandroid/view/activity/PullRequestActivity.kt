@@ -47,6 +47,8 @@ class PullRequestActivity : AppCompatActivity() {
 
         // Configure Observable fields from ViewModel
         configureObservableFields()
+
+        setTitle(repo)
     }
 
     fun configureExtras(){

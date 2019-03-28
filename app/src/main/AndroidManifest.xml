@@ -26,7 +26,6 @@
 
         <activity
                 android:name=".view.activity.PullRequestActivity"
-                android:label="@string/title_activity_listpullrequest"
                 android:theme="@style/AppTheme"/>
     </application>
 
