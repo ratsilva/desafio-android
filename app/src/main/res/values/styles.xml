@@ -7,11 +7,59 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="titleText">
+        <item name="android:textSize">18dp</item>
+        <item name="android:textColor">@color/azul</item>
+        <item name="android:fontFamily">@font/proximanovabold</item>
+    </style>
+
+    <style name="descriptionText">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/cinza_escuro</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:fontFamily">@font/proximanovalight</item>
+    </style>
+
+    <style name="iconText">
+        <item name="android:textSize">16dp</item>
+        <item name="android:textColor">@color/laranja</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:fontFamily">@font/proximanovalight</item>
+    </style>
+
+    <style name="usernameText">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/azul</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">@font/proximanovalight</item>
+    </style>
+
+    <style name="usersurnameText">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/cinza_escuro</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:fontFamily">@font/proximanovalight</item>
+    </style>
+
+    <style name="openedText">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/laranja</item>
+        <item name="android:fontFamily">@font/proximanovabold</item>
+    </style>
+
+    <style name="closedText">
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">@color/cinza_escuro</item>
+        <item name="android:fontFamily">@font/proximanovabold</item>
+    </style>
 
 </resources>

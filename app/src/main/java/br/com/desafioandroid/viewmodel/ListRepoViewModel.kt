@@ -1,34 +1,43 @@
 package br.com.desafioandroid.viewmodel
 
-import androidx.lifecycle.ViewModel
-import androidx.paging.PageKeyedDataSource
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
+import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
-import br.com.desafioandroid.model.RepoDataSourceFactory
-import br.com.desafioandroid.model.retrofit.Item
-import androidx.paging.LivePagedListBuilder
+import br.com.desafioandroid.model.RepoJoinOwner
+import br.com.desafioandroid.model.dataclass.RepoObject
+import br.com.desafioandroid.model.Repository
 
 class ListRepoViewModel : ViewModel(){
 
-    private var itemPagedList: LiveData<PagedList<Item>>? = null
-    private var liveDataSource: LiveData<PageKeyedDataSource<Int, Item>>? = null
+    private val repository: Repository = Repository()
+    private val repoResult: MutableLiveData<RepoObject> = MutableLiveData()
 
     init {
-
-        val repoDataSourceFactory = RepoDataSourceFactory()
-        liveDataSource = repoDataSourceFactory.getRepoLiveDataSource()
-
-        val config = PagedList.Config.Builder()
-            .setEnablePlaceholders(false)
-            .setPageSize(10)
-            .build()
-
-        itemPagedList = LivePagedListBuilder(repoDataSourceFactory, config).build()
-
+        createRepoObject()
     }
 
-    fun getListItem() = itemPagedList
+    private var repos: LiveData<PagedList<RepoJoinOwner>> = Transformations.switchMap(repoResult) { it ->
+        it.data
+    }
 
-    fun getDataSource() = liveDataSource
+    private var networkErrors: LiveData<String> = Transformations.switchMap(repoResult) { it ->
+        it.networkErrors
+    }
+
+    private var isRequesting: LiveData<Boolean> = Transformations.switchMap(repoResult) { it ->
+        it.isRequesting
+    }
+
+    fun createRepoObject(){
+        repoResult.postValue(repository.createRepoObject())
+    }
+
+    fun getRepos() = repos
+
+    fun getNetworkErrors() = networkErrors
+
+    fun getIsRequesting() = isRequesting
 
 }

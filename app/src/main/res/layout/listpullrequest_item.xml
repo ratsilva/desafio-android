@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp"
+    android:background="@color/background_app" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginRight="5dp">
+
+        <TextView
+                android:id="@+id/listpullrequest_item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nome Repositório Repositório Repositório Repositório Repositório Repositório"
+                android:paddingRight="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                style="@style/titleText"/>
+
+        <TextView
+                android:id="@+id/listpullrequest_item_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingRight="5dp"
+                android:maxLines="10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/listpullrequest_item_title"
+                android:text="Descrição do repositorio Descrição do repositorio Descrição do repositorio Descrição do repositorio Descrição do repositorio"
+                style="@style/descriptionText"/>
+
+        <TextView
+                android:id="@+id/listpullrequest_item_lbl_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/listpullrequest_item_body"
+                style="@style/usernameText"
+                android:text="Criado em: "/>
+
+        <TextView
+                android:id="@+id/listpullrequest_item_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintStart_toEndOf="@id/listpullrequest_item_lbl_data"
+                app:layout_constraintTop_toBottomOf="@id/listpullrequest_item_body"
+                style="@style/usersurnameText"
+                android:text="10/10/2019"/>
+
+        <ImageView
+                android:id="@+id/listpullrequest_item_user_img"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_forks"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/listpullrequest_item_lbl_data"/>
+
+        <TextView
+                android:id="@+id/listpullrequest_item_user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Ricardo"
+                style="@style/usernameText"
+                app:layout_constraintTop_toBottomOf="@id/listpullrequest_item_lbl_data"
+                app:layout_constraintStart_toEndOf="@id/listpullrequest_item_user_img"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

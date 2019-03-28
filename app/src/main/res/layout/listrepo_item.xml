@@ -2,33 +2,107 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/listrepo_card"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="5dp"
-    android:layout_margin="10dp" >
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp"
+    android:background="@color/background_app" >
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginRight="5dp">
 
+        <LinearLayout
+                android:id="@+id/listrepo_ll_title_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingRight="5dp"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/listrepo_user_image"
+                app:layout_constraintHorizontal_chainStyle="spread_inside">
+
+            <TextView
+                    android:id="@+id/listrepo_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nome Repositório Repositório Repositório Repositório Repositório Repositório"
+                    style="@style/titleText"/>
+
+            <TextView
+                    android:id="@+id/listrepo_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Descrição do repositorio Descrição do repositorio Descrição do repositorio Descrição do repositorio Descrição do repositorio"
+                    style="@style/descriptionText"/>
+
+        </LinearLayout>
+
+        <ImageView
+                android:id="@+id/listrepo_user_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/listrepo_ll_title_description"
+                android:src="@drawable/ic_forks"/>
 
         <TextView
-                android:id="@+id/listrepo_name"
-                android:layout_width="match_parent"
+                android:id="@+id/listrepo_user_name"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Nome Repositório"
+                android:gravity="center_horizontal|center_vertical"
+                android:text="Ricardo"
+                style="@style/usernameText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/listrepo_user_image"
+                app:layout_constraintStart_toEndOf="@id/listrepo_ll_title_description"/>
+
+
+        <ImageView
+                android:id="@+id/listrepo_ic_forks"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_forks"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"/>
+                app:layout_constraintTop_toBottomOf="@+id/listrepo_ll_title_description"/>
 
         <TextView
-                android:id="@+id/listrepo_description"
-                android:layout_width="match_parent"
+                android:id="@+id/listrepo_txt_forks"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Descrição do repositorio Descrição do repositorio Descrição do repositorio Descrição do repositorio Descrição do repositorio"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/listrepo_name"/>
+                android:gravity="center_horizontal|center_vertical"
+                android:text="640"
+                style="@style/iconText"
+                app:layout_constraintStart_toEndOf="@id/listrepo_ic_forks"
+                app:layout_constraintTop_toBottomOf="@+id/listrepo_ll_title_description"/>
+
+        <ImageView
+                android:id="@+id/listrepo_ic_stars"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/ic_stars"
+                app:layout_constraintStart_toEndOf="@id/listrepo_txt_forks"
+                app:layout_constraintTop_toBottomOf="@+id/listrepo_ll_title_description"/>
+
+        <TextView
+                android:id="@+id/listrepo_txt_stars"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="640"
+                style="@style/iconText"
+                app:layout_constraintStart_toEndOf="@id/listrepo_ic_stars"
+                app:layout_constraintTop_toBottomOf="@+id/listrepo_ll_title_description"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

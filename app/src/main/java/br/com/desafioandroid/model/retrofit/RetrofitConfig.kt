@@ -5,8 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RetrofitConfig {
 
-    private val BASE_URL = "https://api.stackexchange.com/2.2/"
-    private var mInstance: RetrofitConfig? = null
+    private val BASE_URL = "https://api.github.com/"
     private var retrofit: Retrofit
 
     init {
@@ -14,14 +13,6 @@ class RetrofitConfig {
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-    }
-
-    @Synchronized
-    fun getInstance(): RetrofitConfig {
-        if (mInstance == null) {
-            mInstance = RetrofitConfig()
-        }
-        return mInstance as RetrofitConfig
     }
 
     fun getRetrofitRepository(): RetrofitRepository {
