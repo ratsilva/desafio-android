@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/desafio-android.iml" filepath="$PROJECT_DIR$/.idea/desafio-android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/desafio-android.iml" filepath="$PROJECT_DIR$/desafio-android.iml" />
     </modules>
   </component>
 </project>
